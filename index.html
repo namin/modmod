@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<TITLE>A modular module system -- appendix</TITLE>
+</HEAD>
+
+<BODY>
+<H3 ALIGN="center">Web appendix to</H3>
+<H1 ALIGN="center">A modular module system</H1>
+<H3 ALIGN="center">Xavier Leroy</H3>
+
+<P>This is the Web appendix to <I>A modular module system</I>, Xavier
+Leroy, <I>Journal of Functional Programming</I> volume XX number XX,
+pages XXX-XXX, month 2000.</P>
+
+<P>This appendix contains the complete source code to the modular
+type-checker for modules described in that article, along with the
+applications to mini-C and mini-ML mentioned in the article.
+The code is written in <A HREF="http://caml.inria.fr/">Objective Caml
+version 2.04</A>.</P>
+
+<H4>Base language-independent code</H4>
+
+<UL>
+<LI><A HREF="modules.ml"><code>modules.ml</code></A>: the
+type-checker for modules described in section 2 of the paper.
+<LI><A HREF="modules.ml.extended"><code>modules.ml.extended</code></A>: a
+version of the above with the relaxed typing rule for functor
+applications described in section 5.5.
+</UL>
+
+<H4>First application: mini C (section 3.1)</H4>
+
+<UL>
+<LI><A HREF="miniC.ml"><code>miniC.ml</code></A>:
+abstract syntax and type-checker for mini-C.
+<LI><A HREF="miniClexer.mll"><code>miniClexer.mll</code></A>:
+<code>ocamllex</code> lexical analyzer for mini-C.
+<LI><A HREF="miniCparser.mly"><code>miniCparser.mly</code></A>:
+<code>ocamlyacc</code> parser for mini-C.
+<LI><A HREF="miniCmain.ml"><code>miniCmain.ml</code></A>:
+driver program for mini-C, typechecks the source given on standard
+input and prints the inferred types.
+<LI><A HREF="example.miniC"><code>example.miniC</code></A>:
+an example of mini-C program with structures and functors.
+</UL>
+
+<H4>Second application: mini ML (section 3.2)</H4>
+
+<UL>
+<LI><A HREF="miniML.ml"><code>miniML.ml</code></A>:
+abstract syntax and type-checker for mini-ML.
+<LI><A HREF="miniMLlexer.mll"><code>miniMLlexer.mll</code></A>:
+<code>ocamllex</code> lexical analyzer for mini-ML.
+<LI><A HREF="miniMLparser.mly"><code>miniMLparser.mly</code></A>:
+<code>ocamlyacc</code> parser for mini-ML.
+<LI><A HREF="miniMLmain.ml"><code>miniMLmain.ml</code></A>:
+driver program for mini-ML, typechecks the source given on standard
+input and prints the inferred types.
+<LI><A HREF="example.miniML"><code>example.miniML</code></A>:
+an example of mini-ML program with structures and functors.
+</UL>
+
+<H4>Utilities</H4>
+
+<UL>
+<LI><A HREF="Makefile"><code>Makefile</code></A> and
+<A HREF=".depend">dependency file</A> to build the two 
+applications.
+<LI><A HREF="modmod.tgz">All source files</A> in one <code>tar</code>
+archive compressed with <code>gzip</code>.
+</UL>
+
+<P>All the files listed above are distributed under the terms of the
+<A HREF="http://www.opensource.org/licenses/gpl-license.html">GNU
+General Public License version 2</A>.</P>
+
+</BODY>
+</HTML>

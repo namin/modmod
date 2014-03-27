@@ -1,0 +1,35 @@
+struct
+
+  module IntOrder =
+    struct
+      typedef int T;
+      int equal(int x, int y) { return x == y; }
+      int less(int x, int y)  { return x < y; }
+    end;
+
+  module LexicographicOrder =
+    functor (Ord1: sig typedef T;
+                       int equal(T, T);
+                       int less(T, T); end)
+    functor (Ord2: sig typedef T;
+                       int equal(T, T);
+                       int less(T, T); end)
+      struct
+        int equal(Ord1.T p1, Ord2.T p2, Ord1.T q1, Ord2.T q2)
+        {
+          if (Ord1.equal(p1, q1))
+            return Ord2.equal(p2, q2);
+          else
+            return 0;
+        }
+        int less(Ord1.T p1, Ord2.T p2, Ord1.T q1, Ord2.T q2)
+        {
+          if (Ord1.less(p1, q1)) return 1;
+          if (! Ord1.equal(p1, q1)) return 0;
+          return Ord2.less(p2, q2);
+        }
+      end;
+
+  module IntPairOrder = LexicographicOrder(IntOrder)(IntOrder);
+
+end

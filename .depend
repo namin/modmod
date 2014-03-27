@@ -1,0 +1,18 @@
+miniC.cmo: modules.cmo 
+miniC.cmx: modules.cmx 
+miniClexer.cmo: miniCparser.cmi 
+miniClexer.cmx: miniCparser.cmx 
+miniCmain.cmo: miniC.cmo miniClexer.cmo miniCparser.cmi modules.cmo 
+miniCmain.cmx: miniC.cmx miniClexer.cmx miniCparser.cmx modules.cmx 
+miniCparser.cmo: miniC.cmo modules.cmo miniCparser.cmi 
+miniCparser.cmx: miniC.cmx modules.cmx miniCparser.cmi 
+miniML.cmo: modules.cmo 
+miniML.cmx: modules.cmx 
+miniMLlexer.cmo: miniMLparser.cmi 
+miniMLlexer.cmx: miniMLparser.cmx 
+miniMLmain.cmo: miniML.cmo miniMLlexer.cmo miniMLparser.cmi modules.cmo 
+miniMLmain.cmx: miniML.cmx miniMLlexer.cmx miniMLparser.cmx modules.cmx 
+miniMLparser.cmo: miniML.cmo modules.cmo miniMLparser.cmi 
+miniMLparser.cmx: miniML.cmx modules.cmx miniMLparser.cmi 
+miniCparser.cmi: miniC.cmo 
+miniMLparser.cmi: miniML.cmo 
